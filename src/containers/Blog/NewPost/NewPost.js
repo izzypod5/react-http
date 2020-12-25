@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
-import classes from './NewPost.module.css';
+import classes from "./NewPost.module.css";
 
 class NewPost extends Component {
   state = {
-    title: '',
-    content: '',
-    author: 'Max',
+    title: "",
+    content: "",
+    author: "Max",
   };
+
+  componentDidMount() {
+    console.log(this.props);
+  }
 
   postDataHandler = () => {
     const post = {
@@ -16,7 +20,7 @@ class NewPost extends Component {
       body: this.state.content,
       author: this.state.author,
     };
-    axios.post('/posts', post).then((response) => {
+    axios.post("/posts", post).then((response) => {
       console.log(response);
     });
   };
